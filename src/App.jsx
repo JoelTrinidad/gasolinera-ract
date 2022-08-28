@@ -13,7 +13,7 @@ function App() {
   return (
     <Box w="100%" h="100vh">
       <Navbar />
-      <Container>
+      <Container paddingTop={10}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/surtidor" element={<Surtidor />} />
