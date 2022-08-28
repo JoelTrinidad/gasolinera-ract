@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 
 export default function Quantity() {
+  const navigate = useNavigate();
   const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
   return (
@@ -70,6 +71,34 @@ export default function Quantity() {
           Borrar
         </GridItem>
       </Grid>
+      <Box marginTop="40px">
+        <Stack
+          direction="row"
+          spacing={4}
+          cursor="pointer"
+          display="flex"
+          justifyContent="space-between"
+        >
+          <Button
+            leftIcon={<ArrowBackIcon />}
+            colorScheme="teal"
+            variant="outline"
+            size="lg"
+            onClick={() => navigate("/method-payment")}
+          >
+            Volver
+          </Button>
+          <Button
+            rightIcon={<ArrowForwardIcon />}
+            colorScheme="teal"
+            variant="solid"
+            size="lg"
+            onClick={() => navigate("/resume")}
+          >
+            Continuar
+          </Button>
+        </Stack>
+      </Box>
     </>
   );
 }
