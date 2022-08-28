@@ -35,6 +35,41 @@ export default function Quantity() {
           </GridItem>
         ))}
       </Grid>
+      <Grid templateColumns="repeat(3, 1fr)" gap={6} marginTop="30px">
+        <GridItem
+          w="100%"
+          h="20"
+          bgGradient="linear(to-r, gray.200, gray.500)"
+          colSpan={1}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          cursor="pointer"
+          fontWeight="700"
+          boxShadow="0px 4px 10px -3px rgb(117 117 177)"
+          _hover={{ shadow: "2xl" }}
+          onClick={() => console.log("0")}
+        >
+          0
+        </GridItem>
+        <GridItem
+          w="100%"
+          h="20"
+          bg="yellow"
+          colSpan={2}
+          fontSize="40px"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          cursor="pointer"
+          fontWeight="700"
+          boxShadow="0px 4px 10px -3px rgb(117 117 177)"
+          _hover={{ shadow: "2xl" }}
+          onClick={() => console.log("Borrar")}
+        >
+          Borrar
+        </GridItem>
+      </Grid>
     </>
   );
 }
