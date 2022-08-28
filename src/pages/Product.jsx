@@ -15,6 +15,7 @@ import ImageDieselPlus from "../assets/img/diesel-plus.png";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 
 export default function Product() {
+  const navigate = useNavigate();
   const typesGasoil = [
     {
       type: "Gasoil SP 95",
@@ -38,6 +39,12 @@ export default function Product() {
     },
   ];
 
+  const clickGasoil = (typeGasoil, priceGasoil) => {
+    localStorage.setItem("typeGasoil", typeGasoil);
+    localStorage.setItem("priceGasoil", priceGasoil);
+    navigate("/method-payment");
+  };
+
   return (
     <>
       <Heading textAlign="center" size="lg" marginBottom={10}>
@@ -57,7 +64,7 @@ export default function Product() {
               bgGradient: "linear(to-r, orange.100, yellow.100)",
               shadow: "2xl",
             }}
-            onClick={() => console.log("click")}
+            onClick={() => clickGasoil(gasoil.type, gasoil.price)}
           >
             <Box>
               <Heading size="md" fontWeight="extrabold">
@@ -85,6 +92,22 @@ export default function Product() {
           </GridItem>
         ))}
       </Grid>
+      <Box marginTop="40px">
+        <Stack
+          direction="row"
+          spacing={4}
+          cursor="pointer"
+          onClick={() => navigate("/surtidor")}
+        >
+          <Button
+            leftIcon={<ArrowBackIcon />}
+            colorScheme="teal"
+            variant="outline"
+          >
+            Volver al surtidor
+          </Button>
+        </Stack>
+      </Box>
     </>
   );
 }
