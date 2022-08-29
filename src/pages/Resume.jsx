@@ -23,6 +23,8 @@ export default function Resume() {
   const methodPayment = localStorage.getItem("payment");
   const quantity = localStorage.getItem("quantity");
 
+  const finalPrice = priceGasoil * quantity;
+
   const resumeData = [
     {
       title: "Surtidor",
@@ -84,6 +86,23 @@ export default function Resume() {
               />
             </GridItem>
           ))}
+        </Grid>
+        <Grid
+          marginTop="20px"
+          padding="20px"
+          boxShadow="0px 4px 10px -3px rgb(117 117 177)"
+          borderRadius="10"
+        >
+          <Heading size="sm">Precio total a pagar</Heading>
+          <GridItem borderRadius="10">
+            <Heading size="md">${finalPrice}</Heading>
+            <Image
+              src={ImageCapital}
+              alt="price"
+              width="100px"
+              margin="0 auto"
+            />
+          </GridItem>
         </Grid>
       </Grid>
     </>
