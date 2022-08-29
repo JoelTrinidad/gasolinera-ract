@@ -17,6 +17,7 @@ import ImageDrop from "../assets/img/drop.png";
 import ImageCapital from "../assets/img/capital.png";
 
 export default function Resume() {
+  const navigate = useNavigate();
   const surtidor = localStorage.getItem("surtidor");
   const typeGasoil = localStorage.getItem("typeGasoil");
   const priceGasoil = localStorage.getItem("priceGasoil");
@@ -47,6 +48,11 @@ export default function Resume() {
       image: ImageDrop,
     },
   ];
+
+  const returnHome = () => {
+    localStorage.clear();
+    navigate("/");
+  }
 
   return (
     <>
@@ -104,6 +110,13 @@ export default function Resume() {
             />
           </GridItem>
         </Grid>
+        <Box marginTop="40px">
+          <Stack direction="row" spacing={4} cursor="pointer" onClick={returnHome}>
+            <Button leftIcon={<ArrowBackIcon/>} colorScheme="teal" variant="outline">
+              Volver a inicio
+            </Button>
+          </Stack>
+        </Box>
       </Grid>
     </>
   );
