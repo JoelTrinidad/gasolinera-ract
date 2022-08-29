@@ -20,14 +20,29 @@ export default function Resume() {
   const surtidor = localStorage.getItem("surtidor");
   const typeGasoil = localStorage.getItem("typeGasoil");
   const priceGasoil = localStorage.getItem("priceGasoil");
-  const payment = localStorage.getItem("payment");
+  const methodPayment = localStorage.getItem("payment");
   const quantity = localStorage.getItem("quantity");
 
   const resumeData = [
     {
       title: "Surtidor",
       result: surtidor,
-      image: "",
+      image: ImageCar,
+    },
+    {
+      title: "Tipo de producto",
+      result: typeGasoil,
+      image: ImageGasoil,
+    },
+    {
+      title: "Método de pago",
+      result: methodPayment,
+      image: ImageMoney,
+    },
+    {
+      title: "Cantidad",
+      result: `${quantity} Litros`,
+      image: ImageDrop,
     },
   ];
 
@@ -47,25 +62,28 @@ export default function Resume() {
           Resumen del pedido:
         </Heading>
         <Grid templateColumns="repeat(2, 1fr)" gap={9}>
-          <GridItem
-            w="100%"
-            borderRadius="10"
-            boxShadow="0px 4px 10px -4px rgb(117 117 177)"
-            padding="25px 15px"
-          >
-            <Box minHeight="50px">
-              <Heading size="sm">Titulo</Heading>
-              <Heading size="md" fontWeight="800">
-                Resultado
-              </Heading>
-            </Box>
-            <Image
-              src={ImageConfeti}
-              alt="alt de prueba"
-              width="100px"
-              margin="0 auto"
-            />
-          </GridItem>
+          {resumeData.map((data, index) => (
+            <GridItem
+              key={index}
+              w="100%"
+              borderRadius="10"
+              boxShadow="0px 4px 10px -4px rgb(117 117 177)"
+              padding="25px 15px"
+            >
+              <Box minHeight="50px">
+                <Heading size="sm">{data.title}</Heading>
+                <Heading size="md" fontWeight="800">
+                  {data.result}
+                </Heading>
+              </Box>
+              <Image
+                src={data.image}
+                alt={data.title}
+                width="100px"
+                margin="0 auto"
+              />
+            </GridItem>
+          ))}
         </Grid>
       </Grid>
     </>
