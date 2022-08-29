@@ -23,9 +23,9 @@ export default function Quantity() {
   return (
     <>
       <Grid marginBottom={5}>
-        <Heading size="lg">Pulse importe</Heading>
+        <Heading size="lg">Pulse cantidad deseada</Heading>
         <Heading size="lg" fontWeight="800">
-          {counter ? <>${counter}</> : <>$0</>}
+          {counter ? <>{counter} Litros</> : <>0 litros</>}
         </Heading>
       </Grid>
       <Grid templateColumns="repeat(3, 1fr)" gap={6}>
